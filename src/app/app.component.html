@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+  <h1>Number of Pages found: {{ pageCount }}</h1>
+  <ul>
+    <li *ngFor="let i of pagesList">
+     <a href="javascript:void(0)" (click)="onPageClick($event.target.text)">{{ i }}</a>
+    </li>
+  </ul>
+  <h1>Process Status: {{ processStatus }}</h1>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Original Title</th>
+      <th>List of Directors & IMDB Link</th>
+    </tr>
+    <tr *ngFor="let movie of moviesList">
+      <td>
+        {{movie.title}}
+      </td>
+      <td>
+        {{movie.description}}
+      </td>
+      <td>
+        {{movie.originalTitle}}
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let director of movie.directors">
+            {{ director.name }} - <a href="{{ director.profileUrl }}">Profile Url</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
